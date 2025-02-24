@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky top-0 z-50 transition duration-300 bg-gradient-to-b from-[#e4e4e4] dark:from-[#05081c] to-transparent dark:to-transparent"
+    class="sticky top-0 z-50 transition duration-300 bg-header"
   >
     <div class="container z-60 py-[1rem]">
       <div class="flex items-center lg:justify-between">
@@ -37,7 +37,7 @@
                   stroke="currentColor"
                   class="w-6 h-6 text-black dark:text-white"
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  <path  color="#fff" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
@@ -81,9 +81,8 @@
             </li>
           </ul>
         </div>
-
         <NuxtLink
-          to="javascript:"
+          
           class="btn w-20 p-2 rounded-lg capitalize text-base font-normal text-white bg-black dark:bg-primary group-hover:bg-white group-hover:text-primary dark:text-black xl:w-[100px] hidden lg:block"
         >
           {{ $t('common.connect') }}
@@ -94,9 +93,8 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-
 const localePath = useLocalePath()
-
+const walletLoading = ref(false)
 const showMenu = ref(false)
 // Mobile menu js
 const toggleMenu = () => {
@@ -106,9 +104,12 @@ const toggleMenu = () => {
     showMenu.value = false
   }
 }
+
+
 </script>
 
 <style scoped>
+
 header .menus > ul li > a {
   position: relative;
   display: inline-block;
@@ -131,5 +132,17 @@ header .menus > ul li > a.router-link-exact-active::after {
   header .menus > ul li > a.router-link-exact-active::after {
     display: none;
   }
+  header .menus{
+  	background: transparent;
+  }
+  header .menus > ul li > a.router-link-exact-active{
+  	color: rgb(var(--color-primary-DEFAULT) / var(--tw-text-opacity, 1)) !important;
+  }
+  header .menus > ul li > a {
+    color: #fff;
+  }
+}
+.bg-header{
+	background: linear-gradient(270deg, #EDEDED 0%, #FFFFFF 50%, #EDEDED 100%);
 }
 </style>
