@@ -1,0 +1,35 @@
+{
+  "prettier.requireConfig": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "eslint.format.enable": true,
+  "search-node-modules.path": "node_modules",
+  "tailwindCSS.experimental.configFile": "tailwind.config.js",
+  "tailwindCSS.experimental.classRegex": [
+    ["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["/\\*\\s?ui\\s?\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "ui"
+  ],
+  "cSpell.words": [
+    "aibo",
+    "headlessui",
+    "iconify",
+    "Nuxt",
+    "nuxtjs",
+    "rgba"
+  ]
+}

@@ -1,0 +1,173 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-radial-dark-divider {
+    background: radial-gradient(50% 50% at 50% 50%, #ffffff 0%, rgba(143, 143, 143, 0) 100%);
+  }
+  .bg-radial-light-divider {
+    background: radial-gradient(50% 50% at 50% 50%, #000000 36.5%, rgba(255, 255, 255, 0) 100%);
+  }
+  .bg-dark-with-dot {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(46, 10, 88, 0.8)), url('/assets/images/dot.png');
+  }
+  .bg-dark-with-dot-xs {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(14, 24, 78, 0.8)), url('/assets/images/dot.png');
+  }
+  .bg-light-with-dot {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1)), url('/assets/images/dot.png');
+  }
+  .bg-light-with-dot-xs {
+    position: relative;
+    background-color: black;
+  }
+  .bg-light-with-dot-xs::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/dot.png');
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block rounded-2xl bg-primary py-4 px-7 text-center text-sm font-extrabold uppercase text-black transition  hover:scale-105 hover:bg-primary hover:text-white;
+  }
+  .jump-color-btn {
+    @apply flex items-center cursor-pointer rounded-2xl py-10 px-6 duration-500 bg-black dark:bg-gradient-to-r from-[#3EE4FF] to-[#000E5C] transition hover:scale-105;
+  }
+  .heading {
+    @apply mb-10 lg:mb-14;
+  }
+  .heading h6 {
+    @apply mb-3 text-lg font-extrabold text-primary sm:mb-4;
+  }
+  .heading h4 {
+    @apply text-2xl font-extrabold text-black dark:text-white sm:text-3xl lg:text-[40px] lg:!leading-[50px];
+  }
+  .title-text {
+    @apply text-center text-3xl font-black lg:text-[56px] text-black lg:dark:[text-shadow:_0_0px_12px_rgba(105_250_255_/_0.8)] dark:text-primary lg:dark:text-primary dark:lg:text-primary bg-transparent dark:text-transparent bg-none lg:dark:bg-none lg:dark:bg-clip-border dark:bg-[linear-gradient(to_right,#5E00F8,#30F8FF)] dark:bg-clip-text;
+  }
+  .linear-icon {
+    @apply bg-white lg:dark:bg-primary  lg:dark:bg-none dark:bg-[linear-gradient(to_right,#5E00F8,#30F8FF)];
+  }
+
+  /* Light - Dark Mode */
+  .dark .light-mode-btn {
+    @apply block;
+  }
+  .dark .dark-mode-btn {
+    @apply hidden;
+  }
+
+  /* Header */
+  header .menus {
+    @apply fixed top-0 z-[52] h-screen w-full max-w-sm gap-9 bg-white transition-all duration-500 ltr:-right-full rtl:-left-full dark:bg-gray-500 lg:static lg:h-auto lg:max-w-none lg:bg-transparent dark:lg:bg-transparent;
+  }
+  header .menus > ul {
+    @apply relative flex  flex-col font-bold text-black  lg:flex-row lg:items-center lg:gap-11  lg:p-0 lg:text-white;
+  }
+  header .menus > ul li > a {
+    @apply flex items-center justify-between py-4 px-4 transition hover:text-primary text-black dark:text-white dark:hover:text-primary lg:px-0 lg:py-10 hover:lg:scale-110;
+  }
+  header .menus > ul li > a.router-link-exact-active {
+    @apply text-primary lg:scale-110;
+  }
+  header .menus .submenu {
+    @apply invisible z-50 mt-5 hidden grid-cols-1 gap-x-4 rounded-lg py-3 text-sm font-medium text-black opacity-0 transition-all dark:text-white lg:absolute lg:top-full lg:grid lg:min-w-max rtl:lg:translate-x-1/4 ltr:lg:-translate-x-1/4 lg:grid-cols-3 lg:bg-[#F0F4F7] lg:shadow-lg lg:dark:bg-gray-500 rtl:xl:-right-1/2 ltr:xl:-left-1/2 xl:grid-cols-4;
+  }
+  .submenu {
+    @apply group-hover:visible group-hover:mt-0 group-hover:grid group-hover:opacity-100;
+  }
+  header .menus .submenu a {
+    @apply block py-2.5 px-8 transition hover:text-primary lg:px-5 hover:lg:scale-105;
+  }
+  header .menus .submenu a.router-link-exact-active {
+    @apply text-primary lg:scale-105;
+  }
+
+  .me-page .card {
+    @apply px-4 lg:px-10 py-8 border-0 bg-slate-950 dark:border rounded-2xl dark:border-primary dark:bg-[radial-gradient(circle_at_center,#12647e,#041e42)];
+  }
+
+  .text-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #222a36;
+  }
+}
+
+/* responsive menu */
+header .menus.open-menus {
+  @apply overflow-y-auto ltr:right-0 rtl:left-0;
+}
+
+body {
+  font-family: 'Inter';
+}
+
+:root {
+  --social-line-color: black;
+}
+
+body.dark {
+  --social-line-color: white;
+}

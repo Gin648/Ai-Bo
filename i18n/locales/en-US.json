@@ -1,0 +1,183 @@
+{
+  "nav": {
+    "home": "Home",
+    "set_api": "Set Api",
+    "product": "Product",
+    "services": "Services",
+    "about": "About",
+    "connect": "Connect",
+    "courses": "Courses",
+    "tutorials": "Tutorials",
+    "pricing": "Pricing",
+    "downloads": "Downloads",
+    "community": "Community",
+    "contact": "Contact Us",
+    "about_us": "About Us",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "me": "Me"
+  },
+  "common": {
+    "confirm": "Confirm",
+    "connect": "Connect",
+    "products": "Products",
+    "company": "Company",
+    "resources": "Resources",
+    "follow_us": "Follow Us",
+    "get_it": "Get it"
+  },
+  "home": {
+    "banner": {
+      "title": "Personalized AI",
+      "subtitle": "Powered by Your Data",
+      "desc": "Securely connect your scattered data to unlock personalized AI services in a decentralized economy. The future of AI is user-owned, transparent, and privacy-first."
+    },
+    "incubation_advantage_support": {
+      "title": "Incubation advantage support",
+      "list1": [
+        {
+          "title": "Knowledge Equality",
+          "text": "Blockchain ensures fair access and sharing of knowledge, breaking monopolies and empowering equal participation."
+        },
+        {
+          "title": "Human Resource Equality",
+          "text": "Smart contracts enable direct skill-to-market connections, promoting fair value distribution."
+        },
+        {
+          "title": "Business Equality",
+          "text": "lockchain reduces barriers, allowing fair competition and opportunities for all businesses."
+        },
+        {
+          "title": "Traffic Equality",
+          "text": "Decentralization breaks traffic monopolies, ensuring fair distribution to creators and developers"
+        },
+        {
+          "title": "Resource Equality",
+          "text": "Transparent blockchain systems enable fair and sustainable resource allocation"
+        },
+        {
+          "title": "Technology Equality",
+          "text": "Open-source blockchain lowers barriers, making advanced tech accessible to all"
+        }
+      ],
+      "list2": [
+        "From products with low success rates to products with high success rates",
+        "Increase DAU",
+        "Product technology stable output",
+        "Increase revenue with in-app purchases",
+        "The conversion result of common flooding traffic to precise traffic is improved",
+        "Optimize user growth and engagement",
+        "The rate of increase",
+        "Exposure enhancement",
+        "Expand your advertising revenue with profitable UA"
+      ]
+    },
+    "genesis_volunteer": {
+      "title": "Genesis Volunteer",
+      "content": "Pay Gas to mint an AI DID growth-oriented digital identity, symbolizing the pioneers who embark on the path to AI equality.",
+      "list": [
+        {
+          "title": "Participation condition",
+          "text": "Securely connect"
+        },
+        {
+          "title": "Participation mode",
+          "text": "Securely connect"
+        }
+      ]
+    },
+    "agent_ambassador": {
+      "title": "Agent Ambassador",
+      "content": "Purchase RWA digital employees, actively promote the concept of AI equality, and drive the widespread adoption of this vision.",
+      "list": [
+        {
+          "title": "Participation condition",
+          "text": "Invite 100 alliance members"
+        },
+        {
+          "title": "Participation mode",
+          "text": "Invite 100 alliance members"
+        }
+      ]
+    },
+    "on_chain_oath": {
+      "title": "On-chain oath",
+      "desc": "Recorded on the blockchain in an immutable way, ensuring transparency, trustworthiness, and permanent preservation.",
+      "buttons": {
+        "product": "Jump to product",
+        "whitepaper": "Jump to whitepaper",
+        "plan": "Jump to business plan"
+      }
+    },
+    "ecological_incubation_products": {
+      "title": "Ecological incubation products",
+      "desc": "Work together to drive innovation and growth, achieving mutual benefit and win-win outcomes.",
+      "list": [
+        {
+          "title": "Advantage-enabling",
+          "text": "These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+        },
+        {
+          "title": "Advantage-enabling",
+          "text": "These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+        },
+        {
+          "title": "Advantage-enabling",
+          "text": "These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+        },
+        {
+          "title": "Advantage-enabling",
+          "text": "These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+        },
+        {
+          "title": "Advantage-enabling",
+          "text": "These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+        },
+        {
+          "title": "Advantage-enabling",
+          "text": "These variables provide the flexibility to create responsive designs that are visually appealing and function well across different devices and themes."
+        }
+      ]
+    },
+    "strategic_partner": {
+      "title": "Strategic partner"
+    },
+    "contact_us": {
+      "title": "Contact Us"
+    },
+    "data_list": {
+      "organization_size": "Organization size",
+      "service_area": "Service area",
+      "number_of_members": "Number of members",
+      "the_creation_volunteer": "The creation volunteer",
+      "ai_agent_ambassador": "AI Agent Ambassador",
+      "ecological_nutation": "Ecological nutation"
+    }
+  },
+  "invite_code_modal": {
+    "title": "Please enter the invitation code"
+  },
+  "me": {
+    "did_level": "DID Level",
+    "did_content": "Smart contracts enable direct skill-to-market connections, promoting fair value distribution.Smart contracts enable direct skill-to-market connections, promoting fair value distribution.Smart contracts enable direct skill-to-market connections, promoting fair value distribution.",
+    "did_button": "1 USDT Buy",
+    "genesis_volunteer": {
+      "title": "Genesis Volunteer",
+      "text": "Smart contracts enable direct skill-to-market connections, promoting fair value distribution."
+    },
+    "agent_ambassador": {
+      "title": "Agent ambassador",
+      "text": "Smart contracts enable direct skill-to-market connections, promoting fair value distribution."
+    },
+    "nft": {
+      "title": "NFT",
+      "tabs": {
+        "genesis_volunteer": "Genesis volunteer",
+        "agent_ambassador": "Agent ambassador"
+      }
+    },
+    "invite": {
+      "title": "My Invitation"
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "nav": {
+    "home": "首页",
+    "set_api": "设置 API",
+    "product": "产品",
+    "services": "服务",
+    "about": "关于",
+    "connect": "联系我们",
+    "courses": "课程",
+    "tutorials": "教程",
+    "pricing": "定价",
+    "downloads": "下载",
+    "community": "社区",
+    "contact": "联系我们",
+    "about_us": "关于我们",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "me": "我的"
+  },
+  "common": {
+    "confirm": "确认",
+    "connect": "联系我们",
+    "products": "产品",
+    "company": "公司",
+    "resources": "资源",
+    "follow_us": "关注我们",
+    "get_it": "Get it"
+  },
+  "home": {
+    "banner": {
+      "title": "个性化人工智能",
+      "subtitle": "由您的数据驱动",
+      "desc": "安全连接您的分散数据，解锁去中心化经济中的个性化AI服务。未来的人工智能将由用户拥有，透明且隐私优先。"
+    },
+    "incubation_advantage_support": {
+      "title": "孵化优势支持",
+      "list1": [
+        {
+          "title": "知识平等",
+          "text": "区块链保障知识的公平获取与共享，打破垄断，赋能平等参与。"
+        },
+        {
+          "title": "人力资源平等",
+          "text": "智能合约实现技能与市场的直接对接，促进价值公平分配。"
+        },
+        {
+          "title": "商业平等",
+          "text": "区块链降低门槛，让所有企业享有公平竞争与机遇。"
+        },
+        {
+          "title": "流量平等",
+          "text": "去中心化打破流量垄断，确保创作者与开发者公平获取资源。"
+        },
+        {
+          "title": "资源平等",
+          "text": "透明的区块链系统实现资源公平分配与可持续发展。"
+        },
+        {
+          "title": "技术平等",
+          "text": "开源区块链降低技术壁垒，让尖端科技普惠大众。"
+        }
+      ],
+      "list2": [
+        "从低成功率产品转向高成功率产品",
+        "提升日活跃用户数(DAU)",
+        "产品技术稳定输出",
+        "通过应用内购增加收入",
+        "泛流量向精准流量的转化效果提升",
+        "优化用户增长与参与度",
+        "增长率提升",
+        "曝光增强",
+        "通过有效用户获取(UA)拓展广告收益"
+      ]
+    },
+    "genesis_volunteer": {
+      "title": "创世志愿者",
+      "content": "支付Gas费铸造AI DID成长型数字身份，象征开启AI平等之路的先锋。",
+      "list": [
+        {
+          "title": "参与条件",
+          "text": "安全连接"
+        },
+        {
+          "title": "参与方式",
+          "text": "安全连接"
+        }
+      ]
+    },
+    "agent_ambassador": {
+      "title": "智能体大使",
+      "content": "购买RWA数字员工，积极推广AI平等理念，推动这一愿景的广泛落地。",
+      "list": [
+        {
+          "title": "参与条件",
+          "text": "邀请100个联盟成员"
+        },
+        {
+          "title": "参与方式",
+          "text": "邀请100个联盟成员"
+        }
+      ]
+    },
+    "on_chain_oath": {
+      "title": "链上宣言",
+      "desc": "以不可篡改方式记录于区块链，确保透明可信且永久保存。",
+      "buttons": {
+        "product": "查看产品",
+        "whitepaper": "查看白皮书",
+        "plan": "查看商业计划"
+      }
+    },
+    "ecological_incubation_products": {
+      "title": "生态孵化产品",
+      "desc": "携手推动创新增长，实现互利共赢。",
+      "list": [
+        {
+          "title": "优势赋能",
+          "text": "这些变量提供了创建响应式设计的灵活性，确保不同设备和主题下的视觉吸引力与功能完善。"
+        },
+        {
+          "title": "优势赋能",
+          "text": "这些变量提供了创建响应式设计的灵活性，确保不同设备和主题下的视觉吸引力与功能完善。"
+        },
+        {
+          "title": "优势赋能",
+          "text": "这些变量提供了创建响应式设计的灵活性，确保不同设备和主题下的视觉吸引力与功能完善。"
+        },
+        {
+          "title": "优势赋能",
+          "text": "这些变量提供了创建响应式设计的灵活性，确保不同设备和主题下的视觉吸引力与功能完善。"
+        },
+        {
+          "title": "优势赋能",
+          "text": "这些变量提供了创建响应式设计的灵活性，确保不同设备和主题下的视觉吸引力与功能完善。"
+        },
+        {
+          "title": "优势赋能",
+          "text": "这些变量提供了创建响应式设计的灵活性，确保不同设备和主题下的视觉吸引力与功能完善。"
+        }
+      ]
+    },
+    "strategic_partner": {
+      "title": "战略合作伙伴"
+    },
+    "contact_us": {
+      "title": "联系我们"
+    },
+    "data_list": {
+      "organization_size": "组织规模",
+      "service_area": "服务区域",
+      "number_of_members": "成员数量",
+      "the_creation_volunteer": "创世志愿者",
+      "ai_agent_ambassador": "AI智能体大使",
+      "ecological_nutation": "生态培育"
+    }
+  },
+  "invite_code_modal": {
+    "title": "请输入邀请码"
+  },
+  "me": {
+    "did_level": "DID 等级",
+    "did_content": "智能合约实现技能与市场的直接对接，促进价值公平分配。智能合约实现技能与市场的直接对接，促进价值公平分配。智能合约实现技能与市场的直接对接，促进价值公平分配。",
+    "did_button": "1 USDT 购买",
+    "genesis_volunteer": {
+      "title": "创世志愿者",
+      "text": "智能合约实现技能与市场的直接对接，促进价值公平分配。"
+    },
+    "agent_ambassador": {
+      "title": "智能体大使",
+      "text": "智能合约实现技能与市场的直接对接，促进价值公平分配。"
+    },
+    "nft": {
+      "title": "NFT",
+      "tabs": {
+        "genesis_volunteer": "创世志愿者",
+        "agent_ambassador": "智能体大使"
+      }
+    },
+    "invite": {
+      "title": "我的邀请"
+    }
+  }
+}

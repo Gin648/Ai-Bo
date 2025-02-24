@@ -1,0 +1,7 @@
+.vscode
+.nuxt
+node_modules
+tsconfig.json
+package-lock.json
+pnpm-lock.yaml
+yarn.lock

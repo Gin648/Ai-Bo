@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "jasonnutter.search-node-modules",
+    "kisstkondoros.vscode-codemetrics",
+    "editorconfig.editorconfig",
+    "usernamehw.errorlens",
+    "aaron-bond.better-comments"
+  ]
+}
