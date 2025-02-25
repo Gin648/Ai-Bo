@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@pinia/nuxt',
     '@nuxtjs/i18n',
+    '@pinia-plugin-persistedstate/nuxt',
     'nuxt-monaco-editor',
     'nuxt-aos',
     'nuxt-headlessui'
@@ -52,7 +53,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   build: {
-    transpile: ['vue-countup-v3', '@vue-flow/core']
+    transpile: ['vue-countup-v3', '@vue-flow/core', 'pinia-plugin-persistedstate/nuxt']
   },
   devServer: {
     port: 8088

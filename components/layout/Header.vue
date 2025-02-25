@@ -1,7 +1,5 @@
 <template>
-  <header
-    class="sticky top-0 z-50 transition duration-300 bg-header"
-  >
+  <header class="sticky top-0 z-50 transition duration-300 bg-header">
     <div class="container z-60 py-[1rem]">
       <div class="flex items-center lg:justify-between">
         <div class="flex items-center gap-4">
@@ -37,7 +35,7 @@
                   stroke="currentColor"
                   class="w-6 h-6 text-black dark:text-white"
                 >
-                  <path  color="#fff" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  <path color="#fff" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
@@ -81,18 +79,26 @@
             </li>
           </ul>
         </div>
-        <NuxtLink
-          
-          class="btn w-20 p-2 rounded-lg capitalize text-base font-normal text-white bg-black dark:bg-primary group-hover:bg-white group-hover:text-primary dark:text-black xl:w-[100px] hidden lg:block"
+        <div
+          @click="onConnectWallet()"
+          class="btn w-20 p-2 rounded-lg cursor-pointer capitalize text-base font-normal text-white bg-black dark:bg-primary group-hover:bg-white group-hover:text-primary dark:text-black xl:w-[100px] hidden lg:block"
         >
-          {{ $t('common.connect') }}
-        </NuxtLink>
+          {{ accountStore?.isSign ? formatAddress(accountStore.account) : $t('common.connect') }}
+        </div>
       </div>
     </div>
   </header>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useAccount } from '@/hooks/useAccount'
+import { useAppStore } from '@/stores/index'
+import { formatAddress } from '@/utils/utils'
+// import medalContract from '@/contract/MedalContract.ts'
+// const { USDT } = medalContract()
+
+const accountStore = useAppStore()
+const { login, disConnectWallet } = useAccount()
 const localePath = useLocalePath()
 const walletLoading = ref(false)
 const showMenu = ref(false)
@@ -105,11 +111,19 @@ const toggleMenu = () => {
   }
 }
 
+const onConnectWallet = async () => {
+  if (accountStore?.isSign) {
+    return disConnectWallet()
+  }
+  login()
+}
 
+// onMounted(async () => {
+//   console.log(await USDT(), 'usdt')
+// })
 </script>
 
 <style scoped>
-
 header .menus > ul li > a {
   position: relative;
   display: inline-block;
@@ -133,16 +147,14 @@ header .menus > ul li > a.router-link-exact-active::after {
   header .menus > ul li > a.router-link-exact-active::after {
     display: none;
   }
-  header .menus{
-  	background: transparent;
+  header .menus {
+    background: transparent;
   }
-  header .menus > ul li > a.router-link-exact-active{
-  	color: rgb(var(--color-primary-DEFAULT) / var(--tw-text-opacity, 1)) !important;
+  header .menus > ul li > a.router-link-exact-active {
+    color: rgb(var(--color-primary-DEFAULT) / var(--tw-text-opacity, 1)) !important;
   }
   header .menus > ul li > a {
     color: #fff;
   }
-
 }
-
 </style>

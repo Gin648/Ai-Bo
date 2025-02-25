@@ -8,6 +8,11 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
+import { useAccount } from '@/hooks/useAccount'
+const { listenWallet, connectWallet } = useAccount()
+import { getProvider } from '@/utils/provider'
+
 useHead({
   titleTemplate: chunk => (chunk ? `${chunk} • AIBO` : 'AIBO'),
   meta: [
@@ -22,4 +27,17 @@ useHead({
   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
 })
 provideHeadlessUseId(() => useId())
+
+onMounted(async () => {
+  const timer = setInterval(() => {
+    if (getProvider()) {
+      clearInterval(timer)
+      connectWallet()
+      listenWallet()
+    }
+  }, 500)
+
+  // const { USDT } = medalContract()
+  // console.log(await USDT(), 'usdt')
+})
 </script>
