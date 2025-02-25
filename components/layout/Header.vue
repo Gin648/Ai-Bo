@@ -114,6 +114,7 @@ header .menus > ul li > a {
   position: relative;
   display: inline-block;
   font-weight: normal;
+  color: #000;
 }
 header .menus > ul li > a.router-link-exact-active::after {
   content: '';
