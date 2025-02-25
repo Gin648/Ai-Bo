@@ -142,8 +142,7 @@ header .menus > ul li > a.router-link-exact-active::after {
   header .menus > ul li > a {
     color: #fff;
   }
+
 }
-.bg-header{
-	background: linear-gradient(270deg, #EDEDED 0%, #FFFFFF 50%, #EDEDED 100%);
-}
+
 </style>
