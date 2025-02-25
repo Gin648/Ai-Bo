@@ -94,8 +94,8 @@ import { ref, onMounted } from 'vue'
 import { useAccount } from '@/hooks/useAccount'
 import { useAppStore } from '@/stores/index'
 import { formatAddress } from '@/utils/utils'
-// import medalContract from '@/contract/MedalContract.ts'
-// const { USDT } = medalContract()
+import medalContract from '@/contract/MedalContract'
+const { USDT } = medalContract()
 
 const accountStore = useAppStore()
 const { login, disConnectWallet } = useAccount()
@@ -116,8 +116,13 @@ const onConnectWallet = async () => {
     return disConnectWallet()
   }
   login()
+  //
 }
 
+onMounted(async () => {
+  const data = await USDT()
+  console.log(data, 'data')
+})
 // onMounted(async () => {
 //   console.log(await USDT(), 'usdt')
 // })
