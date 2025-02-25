@@ -1,5 +1,5 @@
 <template>
-  {{ $t('nav.services') }}
+  
 </template>
 
 <script setup>

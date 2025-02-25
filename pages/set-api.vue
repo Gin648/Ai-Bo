@@ -1,5 +1,5 @@
 <template>
-  {{ $t('nav.set_api') }}
+  
 </template>
 
 <script setup>

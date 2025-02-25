@@ -1,6 +1,6 @@
 <template>
   <div class="pt-[106px]">
-    {{ $t('nav.about') }}
+    
     <InviteCodeModal />
   </div>
 </template>
