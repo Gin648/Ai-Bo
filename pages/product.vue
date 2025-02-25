@@ -1,5 +1,5 @@
 <template>
-  {{ $t('nav.product') }}
+ 
 </template>
 
 <script setup>
