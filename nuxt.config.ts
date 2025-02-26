@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@pinia-plugin-persistedstate/nuxt',
     'nuxt-monaco-editor',
     'nuxt-aos',
-    'nuxt-headlessui'
+    'nuxt-headlessui',
+	'@vant/nuxt'
   ],
   colorMode: {
     preference: 'dark'

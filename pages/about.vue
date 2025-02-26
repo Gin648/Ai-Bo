@@ -18,7 +18,7 @@ const confirm =async (e) =>{
 	})
 	console.log(res)
 	if(res.success){
-		alert('邀请成功')
+		showToast('邀请成功')
 	}
 }
 </script>

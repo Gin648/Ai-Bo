@@ -68,7 +68,7 @@ const confrim = ()=>{
 	if(inviteCode.value){
 		emit('confirm',inviteCode.value)
 	}else{
-		alert('请输入邀请码')
+		showToast('请输入邀请码')
 	}
 	
 }

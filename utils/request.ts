@@ -43,6 +43,7 @@ const request = <T>(
             message: 'Network exception'
           })
         } else {
+			showToast( res.data.message)
           resolve({
             code: 0,
             success: false,
@@ -58,6 +59,7 @@ const request = <T>(
         } else {
           messageText = 'Network exception'
         }
+		showToast( messageText)
         // reject(error)
         resolve({
           code: 500,

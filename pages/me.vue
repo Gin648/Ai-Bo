@@ -172,7 +172,7 @@ const handleCopy = (value) => {
   text.select() // 选择对象
   if (document.execCommand('copy')) {
     document.execCommand('copy')
-    alert('复制成功')
+	showToast('复制成功')
   }
   // 执行浏览器复制命令
   document.body.removeChild(text)
