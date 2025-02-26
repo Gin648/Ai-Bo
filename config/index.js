@@ -20,7 +20,7 @@
 
 export default {
   env: 'development',
-  // baseUrl: 'https://flashmall-test.bljcoco.com/api',
+  baseUrl: 'http://16.162.138.219:9522',
   // baseUrl: 'https://qpyuznchmj.execute-api.ap-southeast-1.amazonaws.com',
   provider: 'https://data-seed-prebsc-1-s1.bnbchain.org:8545', // bsc provider
   // 币安测试链ID

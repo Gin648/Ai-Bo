@@ -17,6 +17,7 @@
     "@pinia/nuxt": "^0.10.1",
     "@vue-flow/core": "^1.42.1",
     "aos": "^2.3.4",
+    "axios": "^1.8.0",
     "bignumber.js": "^9.1.2",
     "ethers": "5.6.9",
     "monaco-editor": "*",

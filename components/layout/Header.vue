@@ -39,8 +39,26 @@
                 </svg>
               </button>
             </div>
-            <ul >
-				<NuxtLink class="pl-[74px]" v-if="showMenu && innerWidthValue<1024">
+            <ul  class="pl-[74px] box-border">
+				<li>
+				  <NuxtLink :to="localePath('index')">{{ $t('nav.home') }}</NuxtLink>
+				</li>
+				<li>
+				  <NuxtLink :to="localePath('set-api')">{{ $t('nav.set_api') }} </NuxtLink>
+				</li>
+				<li>
+				  <NuxtLink :to="localePath('product')">{{ $t('nav.product') }}</NuxtLink>
+				</li>
+				<li>
+				  <NuxtLink :to="localePath('services')">{{ $t('nav.services') }}</NuxtLink>
+				</li>
+				<li>
+				  <NuxtLink :to="localePath('about')">{{ $t('nav.about') }}</NuxtLink>
+				</li>
+				<li>
+				  <NuxtLink :to="localePath('me')">{{ $t('nav.me') }}</NuxtLink>
+				</li>
+				<NuxtLink v-if="showMenu && innerWidthValue<1024">
 					<div
 					  @click="onConnectWallet()"
 					  class="btn w-20 p-2 rounded-lg cursor-pointer capitalize text-base font-normal text-white bg-black dark:bg-primary group-hover:bg-white group-hover:text-primary dark:text-black xl:w-[100px]  lg:block"
@@ -57,24 +75,7 @@
 						</select>
 					</div>
 				</NuxtLink>
-              <!-- <li>
-                <NuxtLink :to="localePath('index')">{{ $t('nav.home') }}</NuxtLink>
-              </li>
-              <li>
-                <NuxtLink :to="localePath('set-api')">{{ $t('nav.set_api') }} </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink :to="localePath('product')">{{ $t('nav.product') }}</NuxtLink>
-              </li>
-              <li>
-                <NuxtLink :to="localePath('services')">{{ $t('nav.services') }}</NuxtLink>
-              </li>
-              <li>
-                <NuxtLink :to="localePath('about')">{{ $t('nav.about') }}</NuxtLink>
-              </li>
-              <li>
-                <NuxtLink :to="localePath('me')">{{ $t('nav.me') }}</NuxtLink>
-              </li> -->
+              
             </ul>
           </div>
 

@@ -1,7 +1,7 @@
 import { connectWallet as ethersConnect, signData as ethersSign, hashMessage } from '@/utils/ethersUtils'
 
 import { useAppStore } from '@/stores/index'
-
+import { addressAuthLogin } from '@/api/login'
 export const useAccount = () => {
   const accountStore = useAppStore()
 
@@ -69,8 +69,13 @@ export const useAccount = () => {
         message: messageHash,
         signature: signnature
       }
-      accountStore.changeSign(params)
-      accountStore.changeUsers(params)
+	  let res= await addressAuthLogin({...params,inviteCode:''})
+	  console.log(res,'测试登录接口')
+	  if(res.success){
+		accountStore.changeSign(params)
+		accountStore.changeUsers(params)
+		localStorage.setItem('satoken',res.data.token)
+	  }
     }
   }
 
