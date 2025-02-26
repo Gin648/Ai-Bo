@@ -171,6 +171,7 @@
     },
     "nft": {
       "title": "NFT",
+	  "medal":"勋章",
       "tabs": {
         "genesis_volunteer": "创世志愿者",
         "agent_ambassador": "智能体大使"

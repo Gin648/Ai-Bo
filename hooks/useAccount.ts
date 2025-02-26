@@ -74,6 +74,7 @@ export const useAccount = () => {
 	  if(res.success){
 		accountStore.changeSign(params)
 		accountStore.changeUsers(params)
+		accountStore.ChangeUserInfo(res.data.aiUser)
 		localStorage.setItem('satoken',res.data.token)
 	  }
     }

@@ -38,5 +38,5 @@ export default {
     blockExplorerUrls: ['https://testnet.bscscan.com'],
   },
   USDT: '0x5699fB9757d5401122294f8B956D608862890c1a',
-  MEDAL: '0xBFd7c843533F00aee0a0e26F95eB4359E7Ca1BBB'
+  MEDAL: '0xbFC6E43f1E6b24FA6d1F550e978f0a8bb2128eDb'
 }

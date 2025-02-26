@@ -16,7 +16,9 @@ const request = <T>(
   const headers: AxiosRequestHeaders = {
     'Content-type': headerContentType
   }
- 
+ if(localStorage.getItem('satoken')){
+	 headers['satoken'] = localStorage.getItem('satoken')
+ }
 
   return new Promise((resolve, reject) => {
     axios({

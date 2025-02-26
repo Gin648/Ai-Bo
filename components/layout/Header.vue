@@ -66,9 +66,9 @@
 					  {{ accountStore?.isSign ? formatAddress(accountStore.account) : $t('common.connect') }}
 					</div>
 					<div class="flex items-center text-[16px] mt-[46px]  ">
-						<select class="bg-transparent" v-model="selectedLang">
+						<select class="bg-transparent text-[#fff]" v-model="selectedLang">
 						  <template v-for="lang in langs" :key="lang.code">
-						    <option :value="lang.code" class="bg-transparent">
+						    <option :value="lang.code" class="bg-transparent text-[#000]">
 						      {{ lang.name }}
 						    </option>
 						  </template>

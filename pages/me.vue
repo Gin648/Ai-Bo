@@ -54,11 +54,6 @@
       </div>
       <!-- NFT -->
       <div class="flex flex-col gap-2 card">
-        <h2
-          class="text-3xl font-bold text-white dark:text-primary dark:[text-shadow:_0_0px_12px_rgba(105_250_255_/_0.8)]"
-        >
-          {{ $t('me.nft.title') }}
-        </h2>
         <div>
           <UTabs
             :items="tabs"
@@ -163,11 +158,11 @@ const inviteUrl = ref('http://AIBO/abcde')
 const tabs = [
   {
     slot: 'g_v',
-    label: t('me.nft.tabs.genesis_volunteer')
+    label: t('me.nft.medal')
   },
   {
     slot: 'a_a',
-    label: t('me.nft.tabs.agent_ambassador')
+    label: t('me.nft.title')
   }
 ]
 

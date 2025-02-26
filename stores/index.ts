@@ -13,7 +13,8 @@ export const useAppStore = defineStore('app', {
       message: '',
       signature: ''
     },
-    users: {} as any
+    users: {} as any,
+	userInfo:{} as any
   }),
 
   getters: {
@@ -63,7 +64,11 @@ export const useAppStore = defineStore('app', {
 
     toggleMainLoader(payload: boolean = false) {
       this.isShowMainLoader = payload || false
-    }
+    },
+	ChangeUserInfo(e){
+		this.userInfo = e
+		localStorage.setItem('userInfo', e)
+	}
   },
 
   //persist定义要做判断，因为localStorage是客户端参数，所以需要加process.client
