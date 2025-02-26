@@ -127,6 +127,7 @@
         </div>
         <div class="pt-4">
           <UTable
+			v-if="list.length>0"
             :rows="list"
             :ui="{
               divide: '!divide-white',
@@ -204,51 +205,7 @@ const medals = [
     text: 'Smart contracts'
   },
 ]
-
-const list = ref(
-	[
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  },
-	  {
-	    address: '1ad5asd15*****a35sd153',
-	    time: '2025.02.14 23:53'
-	  }
-	]
-)
+const list = ref([])
 const pageLsit = async () =>{
 	let res =await userMedalPageList()
 	if(res.data.list.length>0){
@@ -265,12 +222,9 @@ const pageLsit = async () =>{
 const  invitePageList =async ()=>{
 	let res =await userInvitePageList()
 	if(res.data.list.length>0){
-		res.data.list.forEach(v=>{
-			v.time = v.createTime
-		})
 		list.value = res.data.list
 	}else{
-		
+		list.value =[]
 	}
 }
 onMounted( ()=>{
