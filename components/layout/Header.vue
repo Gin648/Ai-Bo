@@ -25,7 +25,7 @@
           ></div>
 
           <div class="menus" :class="{ 'overflow-y-auto ltr:!right-0 rtl:!left-0': showMenu }">
-            <div class="border-b border-gray/10 ltr:text-right rtl:text-left lg:hidden">
+            <div class="border-gray/10 ltr:text-right rtl:text-left lg:hidden">
               <button @click="toggleMenu()" type="button" class="p-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -39,8 +39,24 @@
                 </svg>
               </button>
             </div>
-            <ul @click="showMenu = false">
-              <li>
+            <ul @click="showMenu = false" >
+				<NuxtLink class="pl-[74px]" v-if="showMenu && innerWidthValue<1024">
+					<div
+					  @click="onConnectWallet()"
+					  class="btn w-20 p-2 rounded-lg cursor-pointer capitalize text-base font-normal text-white bg-black dark:bg-primary group-hover:bg-white group-hover:text-primary dark:text-black xl:w-[100px]  lg:block"
+					>
+					  {{ accountStore?.isSign ? formatAddress(accountStore.account) : $t('common.connect') }}
+					</div>
+					<div class="flex items-center text-[16px] mt-[46px]  ">
+						<div class="text-[#fff]">{{lang}}</div> 
+						<div class="ml-[5px]">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path  d="M3.33301 6.66675L9.99967 13.3334L16.6663 6.66675" stroke="white" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+					</div>
+				</NuxtLink>
+              <!-- <li>
                 <NuxtLink :to="localePath('index')">{{ $t('nav.home') }}</NuxtLink>
               </li>
               <li>
@@ -57,7 +73,7 @@
               </li>
               <li>
                 <NuxtLink :to="localePath('me')">{{ $t('nav.me') }}</NuxtLink>
-              </li>
+              </li> -->
             </ul>
           </div>
 
@@ -79,29 +95,40 @@
             </li>
           </ul>
         </div>
-        <div
-          @click="onConnectWallet()"
-          class="btn w-20 p-2 rounded-lg cursor-pointer capitalize text-base font-normal text-white bg-black dark:bg-primary group-hover:bg-white group-hover:text-primary dark:text-black xl:w-[100px] hidden lg:block"
-        >
-          {{ accountStore?.isSign ? formatAddress(accountStore.account) : $t('common.connect') }}
-        </div>
-      </div>
+		<div class=" items-center  hidden lg:flex">
+			<div class="flex items-center text-[16px] mr-[29px]">
+				{{lang}}
+				<div class="ml-[5px]">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path  d="M3.33301 6.66675L9.99967 13.3334L16.6663 6.66675" :stroke="themeState=='light'?'#000':'#fff'" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</div>
+			</div>
+			  <div  @click="onConnectWallet()"
+			    class="btn w-20 p-2 rounded-lg cursor-pointer capitalize text-base font-normal text-white bg-black dark:bg-primary group-hover:bg-white group-hover:text-primary dark:text-black xl:w-[100px] "
+			  >
+			    {{ accountStore?.isSign ? formatAddress(accountStore.account) : $t('common.connect') }}
+			  </div>
+			</div>
+		</div>
     </div>
   </header>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted,watch } from 'vue'
 import { useAccount } from '@/hooks/useAccount'
 import { useAppStore } from '@/stores/index'
 import { formatAddress } from '@/utils/utils'
 import medalContract from '@/contract/MedalContract'
 const { USDT } = medalContract()
-
 const accountStore = useAppStore()
+const innerWidthValue = ref(0)
 const { login, disConnectWallet } = useAccount()
 const localePath = useLocalePath()
+const lang = ref('中文')
 const walletLoading = ref(false)
 const showMenu = ref(false)
+const themeState = ref('light')
 // Mobile menu js
 const toggleMenu = () => {
   if (window.innerWidth < 1024) {
@@ -110,7 +137,13 @@ const toggleMenu = () => {
     showMenu.value = false
   }
 }
-
+watch(
+  () => accountStore.theme,
+  newValue => {
+	themeState.value = newValue
+  },
+  { deep: true }
+)
 const onConnectWallet = async () => {
   if (accountStore?.isSign) {
     return disConnectWallet()
@@ -122,6 +155,14 @@ const onConnectWallet = async () => {
 onMounted(async () => {
   const data = await USDT()
   console.log(data, 'data')
+  if (process.client) {
+    window.addEventListener('resize', () => {
+	  innerWidthValue.value = window.innerWidth
+	  if(window.innerWidth >1024){
+		  showMenu.value =false
+	  }
+    })
+  }
 })
 // onMounted(async () => {
 //   console.log(await USDT(), 'usdt')
@@ -129,6 +170,10 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+	header .menus{
+		width: 100%;
+		max-width: 100vw;
+	}
 header .menus > ul li > a {
   position: relative;
   display: inline-block;
@@ -152,6 +197,9 @@ header .menus > ul li > a.router-link-exact-active::after {
   header .menus > ul li > a.router-link-exact-active::after {
     display: none;
   }
+  
+}
+@media (max-width: 1024px) {
   header .menus {
     background: transparent;
   }
