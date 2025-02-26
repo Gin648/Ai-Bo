@@ -40,8 +40,8 @@
               </button>
             </div>
             <ul  class="pl-[74px] box-border">
-				<li @click="showMenu = false">
-				  <NuxtLink :to="localePath('index')">{{ $t('nav.home') }}</NuxtLink>
+				<li @click="showMenu = false" >
+				  <NuxtLink  :to="localePath('index')">{{ $t('nav.home') }}</NuxtLink>
 				</li>
 				<li @click="showMenu = false">
 				  <NuxtLink :to="localePath('set-api')">{{ $t('nav.set_api') }} </NuxtLink>
@@ -193,7 +193,7 @@ header .menus > ul li > a {
   position: relative;
   display: inline-block;
   font-weight: normal;
-  color: #000;
+  
 }
 header .menus > ul li > a.router-link-exact-active::after {
   content: '';
