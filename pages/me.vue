@@ -81,10 +81,10 @@
           >
             <template #g_v="{ item }">
               <div class="grid grid-cols-3 gap-6 py-10 lg:grid-cols-6">
-                <template v-for="medal in medals" :key="medal.id">
+                <template v-for="medal in medalList" :key="medal.id">
                   <div class="flex flex-col items-center justify-center">
                     <img :src="medal.image" alt="" />
-                    <p class="pt-2 text-xs text-white lg:text-base">{{ medal.text }}</p>
+                    <p class="pt-2 text-xs text-white lg:text-base">{{ medal.medalText }}</p>
                   </div>
                 </template>
               </div>
@@ -121,7 +121,7 @@
               <span class="text-base text-white">INVITE LINK : </span>
             </template>
             <template #trailing>
-              <UIcon name="octicon:copy-16" class="text-white hover:cursor-pointer" />
+              <UIcon @click="handleCopy(inviteUrl)" name="octicon:copy-16" class="text-white hover:cursor-pointer" />
             </template>
           </UInput>
         </div>
@@ -146,15 +146,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 const { t } = useI18n()
-
+import {userMedalPageList,userInvitePageList} from '@/api/medal'
 useHead({
   title: t('nav.me')
 })
 
-const inviteUrl = ref('http://AIBO/abcde')
-
+const inviteUrl = ref('')
+const medalList = ref([])
 const tabs = [
   {
     slot: 'g_v',
@@ -165,112 +165,121 @@ const tabs = [
     label: t('me.nft.title')
   }
 ]
-
+const handleCopy = (value) => {
+  const text = document.createElement('textarea')
+  text.value = value
+  document.body.appendChild(text)
+  text.select() // 选择对象
+  if (document.execCommand('copy')) {
+    document.execCommand('copy')
+    alert('复制成功')
+  }
+  // 执行浏览器复制命令
+  document.body.removeChild(text)
+}
 const medals = [
   {
-    id: 1,
+    id: 0,
     image: '/assets/images/medals/medal-1.png',
+    text: 'Smart contracts'
+  },
+  {
+    id: 1,
+    image: '/assets/images/medals/medal-2.png',
     text: 'Smart contracts'
   },
   {
     id: 2,
-    image: '/assets/images/medals/medal-2.png',
+    image: '/assets/images/medals/medal-3.png',
     text: 'Smart contracts'
   },
   {
     id: 3,
-    image: '/assets/images/medals/medal-3.png',
+    image: '/assets/images/medals/medal-4.png',
     text: 'Smart contracts'
   },
   {
     id: 4,
-    image: '/assets/images/medals/medal-4.png',
-    text: 'Smart contracts'
-  },
-  {
-    id: 5,
     image: '/assets/images/medals/medal-5.png',
     text: 'Smart contracts'
   },
-  {
-    id: 6,
-    image: '/assets/images/medals/medal-5.png',
-    text: 'Smart contracts'
-  },
-  {
-    id: 7,
-    image: '/assets/images/medals/medal-1.png',
-    text: 'Smart contracts'
-  },
-  {
-    id: 8,
-    image: '/assets/images/medals/medal-2.png',
-    text: 'Smart contracts'
-  },
-  {
-    id: 9,
-    image: '/assets/images/medals/medal-3.png',
-    text: 'Smart contracts'
-  },
-  {
-    id: 10,
-    image: '/assets/images/medals/medal-4.png',
-    text: 'Smart contracts'
-  },
-  {
-    id: 11,
-    image: '/assets/images/medals/medal-5.png',
-    text: 'Smart contracts'
-  },
-  {
-    id: 12,
-    image: '/assets/images/medals/medal-5.png',
-    text: 'Smart contracts'
-  }
 ]
 
-const list = [
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  },
-  {
-    address: '1ad5asd15*****a35sd153',
-    time: '2025.02.14 23:53'
-  }
-]
+const list = ref(
+	[
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  },
+	  {
+	    address: '1ad5asd15*****a35sd153',
+	    time: '2025.02.14 23:53'
+	  }
+	]
+)
+const pageLsit = async () =>{
+	let res =await userMedalPageList()
+	if(res.data.list.length>0){
+		res.data.list.forEach(v=>{
+			let index = medals.findIndex(item=>item.id == v.medalType)
+			if(index != -1){
+				v.image = medals[index].image
+				v.medalText  =medals[index].text
+			}
+		})
+		medalList.value = res.data.list
+	}
+}
+const  invitePageList =async ()=>{
+	let res =await userInvitePageList()
+	if(res.data.list.length>0){
+		res.data.list.forEach(v=>{
+			v.time = v.createTime
+		})
+		list.value = res.data.list
+	}else{
+		
+	}
+}
+onMounted( ()=>{
+	//获取链接
+	let inviteCode =JSON.parse(localStorage.getItem('userInfo')).inviteCode
+	inviteUrl.value = window.location.origin+'/zh?inviteCode='+inviteCode; 
+	pageLsit()
+	invitePageList()
+})
 </script>
 
 <style scoped lang="css"></style>

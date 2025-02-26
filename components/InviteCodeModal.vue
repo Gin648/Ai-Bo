@@ -41,12 +41,14 @@
           padded
           variant="outline"
           size="xl"
+		  v-model="inviteCode"
           class="w-full"
         />
         <div class="w-full px-8 mt-10">
           <UButton
             block
             size="xl"
+			@click="confrim"
             :ui="{ base: 'bg-gradient-to-b from-[#329FFF] to-[#30F8FF] !text-white transition hover:scale-105' }"
             >{{ $t('common.confirm') }}</UButton
           >
@@ -60,4 +62,14 @@
 import { ref } from 'vue'
 
 const isOpen = ref(true)
+const inviteCode =ref('')
+const emit = defineEmits(['confirm'])
+const confrim = ()=>{
+	if(inviteCode.value){
+		emit('confirm',inviteCode.value)
+	}else{
+		alert('请输入邀请码')
+	}
+	
+}
 </script>

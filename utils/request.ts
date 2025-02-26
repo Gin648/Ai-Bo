@@ -47,7 +47,7 @@ const request = <T>(
             code: 0,
             success: false,
             data: null,
-            message: 'Network exception'
+            message: res.data.message
           })
         }
       })

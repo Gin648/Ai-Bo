@@ -69,8 +69,9 @@ export const useAccount = () => {
         message: messageHash,
         signature: signnature
       }
-	  let res= await addressAuthLogin({...params,inviteCode:''})
-	  console.log(res,'测试登录接口')
+	  let res= await addressAuthLogin({...params,inviteCode:
+	  localStorage.getItem('inviteCode') && 
+	  localStorage.getItem('inviteCode')!= 'undefined'?localStorage.getItem('inviteCode'):''})
 	  if(res.success){
 		accountStore.changeSign(params)
 		accountStore.changeUsers(params)

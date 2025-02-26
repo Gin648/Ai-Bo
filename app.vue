@@ -29,6 +29,14 @@ useHead({
 provideHeadlessUseId(() => useId())
 
 onMounted(async () => {
+	 const queryParams = ref({});
+	const urlParams = new URLSearchParams(window.location.search);
+	  for (const param of urlParams.entries()) {
+		queryParams.value[param[0]] = param[1];
+	  }
+	  if(queryParams.value.inviteCode && queryParams.value.inviteCode != 'undefined'){
+		  localStorage.setItem('inviteCode',queryParams.value.inviteCode)
+	  }
   const timer = setInterval(() => {
     if (getProvider()) {
       clearInterval(timer)

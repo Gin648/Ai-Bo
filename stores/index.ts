@@ -67,7 +67,7 @@ export const useAppStore = defineStore('app', {
     },
 	ChangeUserInfo(e){
 		this.userInfo = e
-		localStorage.setItem('userInfo', e)
+		localStorage.setItem('userInfo', JSON.stringify(e))
 	}
   },
 
