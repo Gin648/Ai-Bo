@@ -40,26 +40,24 @@
               </button>
             </div>
             <ul  class="pl-[74px] box-border">
-				<div @click="showMenu = false">
-					<li>
-					  <NuxtLink :to="localePath('index')">{{ $t('nav.home') }}</NuxtLink>
-					</li>
-					<li>
-					  <NuxtLink :to="localePath('set-api')">{{ $t('nav.set_api') }} </NuxtLink>
-					</li>
-					<li>
-					  <NuxtLink :to="localePath('product')">{{ $t('nav.product') }}</NuxtLink>
-					</li>
-					<li>
-					  <NuxtLink :to="localePath('services')">{{ $t('nav.services') }}</NuxtLink>
-					</li>
-					<li>
-					  <NuxtLink :to="localePath('about')">{{ $t('nav.about') }}</NuxtLink>
-					</li>
-					<li>
-					  <NuxtLink :to="localePath('me')">{{ $t('nav.me') }}</NuxtLink>
-					</li>
-				</div>
+				<li @click="showMenu = false">
+				  <NuxtLink :to="localePath('index')">{{ $t('nav.home') }}</NuxtLink>
+				</li>
+				<li @click="showMenu = false">
+				  <NuxtLink :to="localePath('set-api')">{{ $t('nav.set_api') }} </NuxtLink>
+				</li>
+				<li @click="showMenu = false">
+				  <NuxtLink :to="localePath('product')">{{ $t('nav.product') }}</NuxtLink>
+				</li>
+				<li @click="showMenu = false">
+				  <NuxtLink :to="localePath('services')">{{ $t('nav.services') }}</NuxtLink>
+				</li>
+				<li @click="showMenu = false">
+				  <NuxtLink :to="localePath('about')">{{ $t('nav.about') }}</NuxtLink>
+				</li>
+				<li @click="showMenu = false">
+				  <NuxtLink :to="localePath('me')">{{ $t('nav.me') }}</NuxtLink>
+				</li>
 				<NuxtLink v-if="showMenu && innerWidthValue<1024">
 					<div
 					  @click="onConnectWallet()"
