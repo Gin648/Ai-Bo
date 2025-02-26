@@ -39,7 +39,7 @@
                 </svg>
               </button>
             </div>
-            <ul @click="showMenu = false" >
+            <ul >
 				<NuxtLink class="pl-[74px]" v-if="showMenu && innerWidthValue<1024">
 					<div
 					  @click="onConnectWallet()"
@@ -48,12 +48,13 @@
 					  {{ accountStore?.isSign ? formatAddress(accountStore.account) : $t('common.connect') }}
 					</div>
 					<div class="flex items-center text-[16px] mt-[46px]  ">
-						<div class="text-[#fff]">{{lang}}</div> 
-						<div class="ml-[5px]">
-							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path  d="M3.33301 6.66675L9.99967 13.3334L16.6663 6.66675" stroke="white" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-						</div>
+						<select class="bg-transparent" v-model="selectedLang">
+						  <template v-for="lang in langs" :key="lang.code">
+						    <option :value="lang.code" class="bg-transparent">
+						      {{ lang.name }}
+						    </option>
+						  </template>
+						</select>
 					</div>
 				</NuxtLink>
               <!-- <li>
@@ -97,12 +98,13 @@
         </div>
 		<div class=" items-center  hidden lg:flex">
 			<div class="flex items-center text-[16px] mr-[29px]">
-				{{lang}}
-				<div class="ml-[5px]">
-					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path  d="M3.33301 6.66675L9.99967 13.3334L16.6663 6.66675" :stroke="themeState=='light'?'#000':'#fff'" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
+				<select class="bg-transparent" v-model="selectedLang">
+				  <template v-for="lang in langs" :key="lang.code">
+				    <option :value="lang.code" class="bg-transparent">
+				      {{ lang.name }}
+				    </option>
+				  </template>
+				</select>
 			</div>
 			  <div  @click="onConnectWallet()"
 			    class="btn w-20 p-2 rounded-lg cursor-pointer capitalize text-base font-normal text-white bg-black dark:bg-primary group-hover:bg-white group-hover:text-primary dark:text-black xl:w-[100px] "
@@ -120,12 +122,16 @@ import { useAccount } from '@/hooks/useAccount'
 import { useAppStore } from '@/stores/index'
 import { formatAddress } from '@/utils/utils'
 import medalContract from '@/contract/MedalContract'
+import langs from '@/i18n/languages'
+const { setLocale } = useI18n()
+const currentLocalePath = useLocalePath()
+const currentLocale = currentLocalePath().split('/')[1]
+const selectedLang = ref(currentLocale || 'en')
 const { USDT } = medalContract()
 const accountStore = useAppStore()
 const innerWidthValue = ref(0)
 const { login, disConnectWallet } = useAccount()
 const localePath = useLocalePath()
-const lang = ref('中文')
 const walletLoading = ref(false)
 const showMenu = ref(false)
 const themeState = ref('light')
@@ -137,6 +143,14 @@ const toggleMenu = () => {
     showMenu.value = false
   }
 }
+watch(
+  () => selectedLang.value,
+  newValue => {
+	  showMenu.value = false
+    setLocale(newValue)
+  },
+  { deep: true }
+)
 watch(
   () => accountStore.theme,
   newValue => {
