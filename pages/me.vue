@@ -83,7 +83,7 @@
               <div class="grid grid-cols-3 gap-6 py-10 lg:grid-cols-6">
                 <template v-for="medal in medalList" :key="medal.id">
                   <div class="flex flex-col items-center justify-center">
-                    <img :src="medal.image" alt="" />
+                    <img  :class="[medal.status==0?'gray': '']" :src="medal.image" alt="" />
                     <p class="pt-2 text-xs text-white lg:text-base">{{ medal.medalText }}</p>
                   </div>
                 </template>
@@ -216,6 +216,7 @@ const pageLsit = async () =>{
 				v.medalText  =medals[index].text
 			}
 		})
+		console.log(res.data.list)
 		medalList.value = res.data.list
 	}
 }
@@ -236,4 +237,13 @@ onMounted( ()=>{
 })
 </script>
 
-<style scoped lang="css"></style>
+<style scoped lang="css">
+.gray{
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+}
+</style>
